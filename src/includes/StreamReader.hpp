@@ -1,7 +1,7 @@
 #ifndef STREAM_READER_H_
 #define STREAM_READER_H_
 
-#include "opencv2/core.hpp"
+#include <opencv2/core.hpp>
 
 #include <memory>
 #include <vector>

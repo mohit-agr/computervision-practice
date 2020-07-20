@@ -15,7 +15,9 @@ project(vio)
 
 set(SOURCES
   includes/StreamReader.hpp
+  includes/HoughLines.hpp
   StreamReader.cpp
+  HoughLines.cpp
   main.cc
 )
 

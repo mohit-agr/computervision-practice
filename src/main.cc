@@ -6,6 +6,7 @@
 #include <memory>
 
 #include "StreamReader.hpp"
+#include "HoughLines.hpp"
 
 using namespace std;
 
@@ -15,6 +16,8 @@ int main() {
 
     std::shared_ptr<std::vector<cv::Mat>> image = videoReader.getImage();
 
-    cv::Mat img = (*image)[0];
+    // Detect line features (edges)
+    HoughLines lines(1.0, CV_PI/180, 50.0, 50, 10);
+    lines.DetectLines(*image);
     return 0;
 }
