@@ -1,4 +1,5 @@
 dataset/*
 !dataset/README.md
 .vscode
+.vscode/*
 VIO.code-workspace
