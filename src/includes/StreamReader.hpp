@@ -1,10 +1,10 @@
 #ifndef STREAM_READER_H_
 #define STREAM_READER_H_
 
-#include <opencv2/core.hpp>
-
 #include <memory>
 #include <vector>
+
+#include <opencv2/core.hpp>
 
 enum Cam {
     Cam0, Cam1

@@ -1,11 +1,10 @@
 #ifndef HOUGH_LINES_H_
 #define HOUGH_LINES_H_
 
+#include <vector>
+
 #include <opencv2/core.hpp>
 #include <opencv2/opencv.hpp>
-
-#include <memory>
-#include <vector>
 
 class HoughLines {
 public:
