@@ -2,3 +2,6 @@
 */OpenCV
 */x64
 */x84
+*/*.sln
+*/*.avi
+*/*.vcxproj*
