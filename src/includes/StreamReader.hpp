@@ -14,9 +14,9 @@ class StreamReader {
 public:
     void readImage(Cam cam);
     void playImageStream();
-    void getImage(std::vector<cv::Mat> *outImage);
+    std::shared_ptr<std::vector<cv::Mat>> getImage();
     StreamReader(Cam cam);
 private:
-    std::vector<cv::Mat> video;
+    std::shared_ptr<std::vector<cv::Mat>> video;
 };
 #endif // STREAM_READER_H_

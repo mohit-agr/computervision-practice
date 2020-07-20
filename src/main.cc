@@ -8,9 +8,13 @@
 #include "StreamReader.hpp"
 
 using namespace std;
+
 int main() {
     StreamReader videoReader(Cam::Cam0);
     // videoReader.playImageStream();
 
+    std::shared_ptr<std::vector<cv::Mat>> image = videoReader.getImage();
+
+    cv::Mat img = (*image)[0];
     return 0;
 }

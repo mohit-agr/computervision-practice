@@ -3,3 +3,6 @@ dataset/*
 .vscode
 .vscode/*
 VIO.code-workspace
+
+build/*
+mav0/*
