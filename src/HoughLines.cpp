@@ -8,7 +8,7 @@ std::vector<cv::Vec4i> HoughLines::detect_lines(const cv::Mat &image) {
     cv::Canny(image, cannyEdge, 50, 200, 3);
 
     std::vector<cv::Vec4i> linesP;
-    cv::HoughLinesP(cannyEdge, linesP, 1, CV_PI/180, 50, 50, 10);
+    cv::HoughLinesP(cannyEdge, linesP, _rho, _theta, _threshold, _minLineLen, _maxLineGap);
 
     // for( size_t i = 0; i < linesP.size(); i++ )
     // {
@@ -29,11 +29,11 @@ void HoughLines::DetectLines(const std::vector<cv::Mat>& imageStream)
     }
 }
 
-HoughLines::HoughLines(double rho, double theta, double threshold, int max_line_length, int max_line_gap) 
+HoughLines::HoughLines(double rho, double theta, double threshold, int min_line_length, int max_line_gap)
 {
     this->_rho = rho;
     this->_theta = theta;
     this->_threshold = threshold;
-    this->_maxLineLen = max_line_length;
+    this->_minLineLen = min_line_length;
     this->_maxLineGap = max_line_gap;
 }
