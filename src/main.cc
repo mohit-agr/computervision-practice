@@ -6,6 +6,11 @@
 
 #include "StreamReader.hpp"
 #include "HoughLines.hpp"
+#include "Odometry.hpp"
+
+#define PROJ_DIR "/Users/mohit/Code/ComputerVision/VIO/"
+#define DATA_DIR "/Users/mohit/Code/ComputerVision/VIO/dataset/MH_01_easy/mav0/"
+#define IMG_DIR "../dataset/MH_01_easy/mav0/"
 
 using namespace std;
 
@@ -30,9 +35,11 @@ static void printFeatures(const cv::Mat &img, const std::vector<cv::KeyPoint> &k
 }
 
 int main() {
-    StreamReader videoReader(Cam::Cam0);
-    // videoReader.playImageStream();
+    // initialize odometry parameters.
+    Odometry viso(DATA_DIR);
 
+    // read image stream.
+    StreamReader videoReader(Cam::Cam0);
     std::shared_ptr<std::vector<cv::Mat>> image = videoReader.getImage();
 
     // Detect line features (edges)
@@ -40,8 +47,9 @@ int main() {
     // lines.DetectLines(*image);
 
     for (const auto& img : *image) {
+        // trackedFeatures.track(img);
         std::vector<cv::KeyPoint> orb_features = getOrbFeatures(img);
-        // printFeatures(img, orb_features);
+        printFeatures(img, orb_features);
     }
 
     return 0;
